@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Visa - Work permit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=FontName">
+    <link rel="stylesheet" href="css/canada-wp.css">
+</head>
+<body>
+    <header>
+        <div class="advert">
+            Apply for a visa to any country from Bangladesh
+        </div>
+        
+        <div class="main-header">
+            <a href="index.html"><img src="assets/logo.jpg" alt="logo"></a>
+        </div>
+    </header>
+
+    <section class="navigation">
+        <a href="index.html">Home - </a> 
+        
+        <a href="canada-wp.html">&nbsp; Canada Visa - Work permit</a>
+    </section>
+
+
+
+    <section class="container">
+        <h1>Uploaded Visa's</h1>
+        <h4>The visa's for the following names have been uploaded. Click and verify to download document</h4>
+        <div class="names">
+            <p>1. <a href="javascript:void(0)" onclick="openPopup(1)">Abid Bappi Hasan</a></p>
+        </div>
+
+        <div class="overlay" id="passwordOverlay">
+            <div class="popup">
+                <p>Confirm visa Number:</p>
+                <input type="password" id="passwordInput" placeholder="LMIA number...">
+                <button onclick="checkPassword()">Submit</button>
+                <button onclick="cancelPopup()">Cancel</button>
+            </div>
+        </div>
+        
+        <!-- Popup for verification and document options -->
+        <div class="overlay" id="verificationOverlay">
+            <div class="popup" id="downloadPopup">
+                <p>Approved</p>
+                <button onclick="downloadDocument()" class="download">Download</button>
+                <button onclick="cancelPopup()" class="back">Back</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="foot-top">
+            <div class="email-info">
+            <h3>Get an Email from Us</h3>
+            <input type="email" id="email" class="email" placeholder="Your Email">
+            <button onclick="sendBtn">Send</button>
+            </div>
+        </div>
+        
+         <div class="addresses">
+          <h3>CANADA HEAD OFFICE:</h3>
+          <p>88 Queens Quay W Suite 2500, Toronto, ON M5J 0B6, Canada.</p>
+
+          <h3>BANGLADESH HEAD OFFICE:</h3>
+          <p>Embassy of Canada in Dhaka</p>
+          <p>Diplomatic Zone, United Nations Rd. Dhaka 1212. Bangladesh.</p>
+        </div>
+        
+        <div class="copyrights">
+            <p>&copy VFS Immigration Global 2023. All rights reserved.</p>
+            
+            <p>In association with VFS.</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script>
+        let currentLinkId = 0;
+
+        function openPopup(linkId) {
+            currentLinkId = linkId;
+            document.getElementById("passwordOverlay").style.display = "flex";
+        }
+
+        function cancelPopup() {
+            document.getElementById("passwordOverlay").style.display = "none";
+            document.getElementById("verificationOverlay").style.display = "none";
+        }
+
+        function checkPassword() {
+            const enteredPassword = document.getElementById("passwordInput").value;
+            // Replace with the actual passwords for each link (you can use an array or object)
+            const passwords = {
+                1: "B00302307"
+                // Add more passwords for other links here
+            };
+
+            if (passwords[currentLinkId] && enteredPassword === passwords[currentLinkId]) {
+                document.getElementById("passwordOverlay").style.display = "none";
+                document.getElementById("verificationOverlay").style.display = "flex";
+            } else {
+                alert("Incorrect password. Try again.");
+            }
+        }
+
+
+            function downloadDocument() {
+        // Replace with the URL to download the specific document for the current link
+        const documentURLs = {
+            1: "assets/cw1.jpg"
+            // Add more document URLs for other links here
+        };
+
+        const currentDocumentURL = documentURLs[currentLinkId];
+
+        if (currentDocumentURL) {
+            const a = document.createElement('a');
+            a.href = currentDocumentURL;
+            a.download = `document_${currentLinkId}.jpg`; // You can customize the downloaded file name if needed
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            alert("file is downloading");
+        } else {
+            alert("Document URL not found for the current link.");
+        }
+    }
+
+
+        function sendBtn() {
+            location.reload()
+        }
+    </script>
+    
+</body>
+</html>
